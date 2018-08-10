@@ -3,8 +3,8 @@ import {NgModule} from '@angular/core';
 
 
 import {AppComponent} from './app.component';
-import {HttpClientModule} from '@angular/common/http';
 import {HttpService} from './http.service';
+import {HttpModule} from '@angular/http';
 
 
 @NgModule({
@@ -12,7 +12,7 @@ import {HttpService} from './http.service';
     AppComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule
+    BrowserModule, HttpModule
   ],
   providers: [HttpService],
   bootstrap: [AppComponent]

@@ -14,8 +14,14 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.httpService.getData()
       .subscribe(
-        (data: Response) => console.log(data)
+        (data) => console.log(data)
       );
   }
 
+  onSubmit(username: string, email: string) {
+    return this.httpService.postData({username: username, email: email})
+      .subscribe(
+        (data) => console.log(data)
+      );
+  }
 }
