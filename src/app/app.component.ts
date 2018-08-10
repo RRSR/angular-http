@@ -7,15 +7,13 @@ import {HttpService} from './http.service';
 })
 export class AppComponent implements OnInit {
 
+  items: any[] = [];
+  asyncString = this.httpService.getData();
 
   constructor(private httpService: HttpService) {
   }
 
   ngOnInit(): void {
-    this.httpService.getData()
-      .subscribe(
-        (data) => console.log(data)
-      );
   }
 
   onSubmit(username: string, email: string) {
@@ -23,5 +21,17 @@ export class AppComponent implements OnInit {
       .subscribe(
         (data) => console.log(data)
       );
+  }
+
+  onGetData() {
+    this.httpService.getOwnData().subscribe(
+      (data) => {
+        const tempArray = [];
+        for (const key in data) {
+          tempArray.push(data[key]);
+        }
+        this.items = tempArray;
+      }
+    );
   }
 }

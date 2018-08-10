@@ -21,4 +21,9 @@ export class HttpService {
       .map((response: Response) => response.json());
 
   }
+
+  getOwnData() {
+    return this.http.get('https://angualr-http-7a0e1.firebaseio.com/data.json')
+      .map((response: Response) => response.json());
+  }
 }

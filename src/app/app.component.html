@@ -3,3 +3,10 @@
 <label>Email ID :</label>
 <input type="text" #email>
 <button (click)="onSubmit(userName.value, email.value)">Submit</button>
+<hr>
+<button (click)="onGetData()">Get Data</button>
+<ul>
+  <li *ngFor="let i of items">{{i.username}}</li>
+</ul>
+<hr>
+<p>{{asyncString |async}}</p>
